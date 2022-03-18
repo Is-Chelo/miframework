@@ -35,7 +35,7 @@ const Add = ({ match }) => {
     <>
       <Row>
         <Colxx xxs="12">
-          <Breadcrumb heading="menu.formspayments" match={match} />
+          <Breadcrumb heading="{menu}" match={match} />
           {/* <Link to={previousUrl}> */}
           <Button
             color="primary"

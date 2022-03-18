@@ -60,7 +60,7 @@ const List = ({ match }) => {
     <>
       <Row>
         <Colxx xxs="12">
-          <Breadcrumb heading="menu.tariffs" match={match} />
+          <Breadcrumb heading="{menu}" match={match} />
           <Link to={`${match.url}/add`}>
             <Button color="primary" className="mb-2 float-right">
               <IntlMessages id="form.add" />

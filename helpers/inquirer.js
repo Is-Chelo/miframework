@@ -12,26 +12,6 @@ const preguntas = [{
             name: `${"1.".green} Crear Tarea`
         },
         {
-            value: '2',
-            name: `${"2.".green} Listar tareas`
-        },
-        {
-            value: '3',
-            name: `${"3.".green} Listar tareas completadas`
-        },
-        {
-            value: '4',
-            name: `${"4.".green} Listar tareas Pendientes`
-        },
-        {
-            value: '5',
-            name: `${"5.".green} Completar Tarea(s)`
-        },
-        {
-            value: '6',
-            name: `${"6.".green} Borrar Tarea`
-        },
-        {
             value: '0',
             name: `${"0.".green} Salir`
         },
@@ -78,73 +58,8 @@ const leerInput = async (message) => {
 }
 
 
-const listadoTareasBorrar = async (tareas) => {
-    let preguntas = [];
-
-    tareas.forEach((tarea, i) => {
-        const id = `${i + 1}.`.green;
-        preguntas.push(
-            {
-                value: `${tarea.id}`,
-                name: `${id} ${tarea.descripcion}`
-            }
-        )
-    });
-
-    const opciones = [{
-        type: 'list',
-        name: 'op',
-        message: 'Que tarea deseas Borrar? ',
-        choices: preguntas
-    }]
-    const { op } = await inquirer.prompt(opciones);
-    return op;
-
-}
-
-
-const confirmar = async (message) => {
-    const question = [
-        {
-            type: 'confirm',
-            name: 'res',
-            message
-        }
-    ]
-    const { res } = await inquirer.prompt(question);
-    return res;
-}
-
-
-const completarTareas = async(tareas)=>{
-    const listaTareas = tareas.map((tarea, i)=>{
-        const idx = `${i+1}.`.green;
-        return {
-            value:`${tarea.id}`,
-            name:`${idx} ${tarea.descripcion}`,
-            checked:tarea.completado?true:false
-        }
-    })
-
-
-    const opciones = [{
-        type: 'checkbox',
-        name: 'op',
-        message:"Selecciones",
-        choices: listaTareas
-    }]
-
-    const { op } = await inquirer.prompt(opciones);
-    return op;
-}
-
-
 module.exports = {
     inquireMenu,
     pausa,
-    leerInput,
-    listadoTareasBorrar,
-    confirmar,
-    completarTareas
+    leerInput
 }
-

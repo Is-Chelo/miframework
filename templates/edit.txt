@@ -49,7 +49,7 @@ const Edit = ({ match, location }) => {
         <>
           <Row>
             <Colxx xxs="12">
-              <Breadcrumb heading="menu.formspayments" match={match} />
+              <Breadcrumb heading="{menu}" match={match} />
               <Button
                 color="primary"
                 className="mb-2 float-right"
